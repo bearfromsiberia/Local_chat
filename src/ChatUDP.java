@@ -13,7 +13,7 @@ public class ChatUDP extends JFrame {
     private final int FRM_WIDTH = 400;
     private final int FRM_HEIGHT = 400;
     private  final int PORT = 9876;
-    private final String IP_BROADCAST = "172.20.10.5";
+    private String IP_BROADCAST;
 
     public ChatUDP(){
     }
@@ -45,6 +45,7 @@ public class ChatUDP extends JFrame {
     }
 
     private void btnSend_Handler() throws Exception{
+        IP_BROADCAST = String.valueOf(InetAddress.getLocalHost()).split("/")[1];
         DatagramSocket sendSocket = new DatagramSocket();
         InetAddress IPAddress = InetAddress.getByName(IP_BROADCAST);
         byte[] sendData;
